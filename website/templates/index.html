@@ -1,0 +1,67 @@
+ 
+<!DOCTYPE html>
+<html lang="he">
+<head>
+    <title>סריקת מחברות בחינה - כניסה</title>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link href="n3style.css" rel="Stylesheet" type="text/css">
+	</head>
+<body dir=rtl >
+
+<div id="skiptocontent" ><a href="#mainContent" id="skipper">דלג לתוכן</a></div>
+<div class="myBreak">
+</div>
+
+<div dir=ltr style="float:left" lang="en">
+
+<a href="elogin.php" style="color:#3B5998"><strong><span  class="engText">To English version</span>
+</strong></a>
+</div>
+
+<div dir=rtl style="float:right"  lang="he">
+<strong> <span class="hebText">גרסה עברית</span>
+</strong> </div>
+
+<img src="{{url_for('static', filename='BGU.sig.png')}}" height=84 alt="תמונת לוגו של אוניברסיטת בן-גוריון בנגב" >
+ <div id="mainContent">
+  
+<h1>
+סריקת מחברות בחינה - כניסה</h1>
+<hr>
+<form method=POST >
+<div class="myBreak">
+</div>
+<span class="hebLargerText">נא להזדהות</span><div class="myBreak"></div><div class="myBreak">
+</div>
+
+
+<div class="HTable"><div class="Row"><div class="Cell"><span class="hebText"><label for="username">שם משתמש</label></span>
+ </div>
+<div class="Cell"> <input type="text" id="username" name="username" size=16 maxlength="16" dir="ltr"   value="" class="textEntryEng" >
+</div>
+ <div class="Cell">   </div>
+  </div>
+<div class="Row"><div class="Cell"><span class="hebText"><label for="pass">סיסמא</label></span>
+ </div>
+<div class="Cell"> <input type="password" id="pass" name="pass" size=24 maxlength="24" dir="ltr"   value="" class="textEntryEng" >
+</div>
+ <div class="Cell">   </div>
+  </div>
+<div class="Row"><div class="Cell"><span class="hebText"><label for="id">ת.ז./דרכון</label></span>
+ </div>
+<div class="Cell"> <input type="text" id="id" name="id" size=12 maxlength="12" dir="ltr"   value="" class="textEntryEng" >
+</div>
+ <div class="Cell">   </div>
+  </div>
+ </div>                                                              
+
+<div class="myBreak">
+</div>
+<div class="myBreak">
+</div>
+<input type=submit name=ok value="המשך" class="buttonEntry">
+
+<input type=hidden name="isheb" value="1">
+</form>
+</div>
+<link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/n3style.css') }}">

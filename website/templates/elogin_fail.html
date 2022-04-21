@@ -1,0 +1,71 @@
+ 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>University Exams Scanning System - entrance: submission error</title>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link href="n3style.css" rel="Stylesheet" type="text/css">
+	</head>
+<body dir=ltr >
+
+<div id="skiptocontent" ><a href="#mainContent" id="skipper">Skip to main content</a></div>
+<div class="myBreak">
+</div>
+
+<div dir=ltr style="float:left" lang="en">
+
+<strong> <span  class="engText">English version</span>
+</strong> </div>
+
+<div dir=rtl style="float:right"  lang="he">
+<a href="login.php" style="color:#3B5998"><strong><span class="hebText">לגרסה עברית</span>
+</strong></a>
+</div>
+
+<img src="{{url_for('static', filename='BGU.sig.png')}}" height=84 alt="Logo of Ben-Gurion University of the Negev" >
+ <div id="mainContent">
+  
+<h1>
+University Exams Scanning System - entrance: submission error</h1>
+<hr>
+<form method=POST  aria-describedby="errorfound" >
+<h2 class="myEngh2"> Error message </h2>
+<span class="redengText" id="errorfound" tabindex=0>Login incorrect - please try again</span>
+<div class="myBreak">
+</div>
+<div class="myBreak">
+</div>
+<span class="engLargerText">Please login</span><div class="myBreak"></div><div class="myBreak">
+</div>
+
+
+<div class="ETable"><div class="Row"><div class="Cell"><span class="engText"><label for="username">Username</label></span>
+ </div>
+<div class="Cell"> <input type="text" id="username" name="username" size=16 maxlength="16" dir="ltr"   value="" class="textEntryEng" >
+</div>
+ <div class="Cell">   </div>
+  </div>
+<div class="Row"><div class="Cell"><span class="engText"><label for="pass">Password</label></span>
+ </div>
+<div class="Cell"> <input type="password" id="pass" name="pass" size=24 maxlength="24" dir="ltr"   value="" class="textEntryEng" >
+</div>
+ <div class="Cell">   </div>
+  </div>
+<div class="Row"><div class="Cell"><span class="engText"><label for="id">ID (teudat zehut)</label></span>
+ </div>
+<div class="Cell"> <input type="text" id="id" name="id" size=12 maxlength="12" dir="ltr"   value="" class="textEntryEng" >
+</div>
+ <div class="Cell">   </div>
+  </div>
+ </div>                                                              
+
+<div class="myBreak">
+</div>
+<div class="myBreak">
+</div>
+<input type=submit name=ok value="Next" class="buttonEntry">
+
+<input type=hidden name="isheb" value="0">
+</form>
+</div>
+<link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/n3style.css') }}">

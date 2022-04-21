@@ -2,20 +2,20 @@ from flask import Blueprint, render_template, request, redirect, url_for
 from libs.logic import Logic
 
 
-login = Blueprint('login', __name__)
+elogin = Blueprint('elogin', __name__)
 logic = Logic()
 
 
-@login.route('/login.php', methods=['GET', 'POST'])
+@elogin.route('/elogin.php', methods=['GET', 'POST'])
 def home():
     if request.method == 'GET':
-        return render_template('./login.html')
+        return render_template('./elogin.html')
 
     if request.method == 'POST':
         username, password, identity = request.form.get('username'), request.form.get('pass'), request.form.get('id')
 
-        html_file_name = logic.render_courses(username, password, identity)
-        if html_file_name == "login_fail.html":
+        html_file_name = logic.render_courses(username, password, identity, english=True)
+        if html_file_name == "elogin_fail.html":
             return render_template(f"./{html_file_name}")
 
         return redirect(url_for('courses_list.crs_list', username=html_file_name))

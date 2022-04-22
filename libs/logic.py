@@ -6,10 +6,10 @@ class Logic:
     def __init__(self):
         self.users = {}
 
-    def render_courses(self, username, password, identity, english=False):
+    def render_courses(self, username, password, identity, is_heb):
         session_id = self.get_session_id(username, password, identity)
         if session_id == -1:
-            return "login_fail.html" if not english else "elogin_fail.html"
+            return is_heb
 
         headers = {
             "Referer": "https://gezer1.bgu.ac.il/meser/main.php",
@@ -17,7 +17,7 @@ class Logic:
         }
 
         data = {
-            "isheb": 0 if english else 1
+            "isheb": int(is_heb)
         }
 
         res = requests.post("https://gezer1.bgu.ac.il/meser/crslist.php", data=data, headers=headers).content
@@ -26,13 +26,11 @@ class Logic:
                                                                                                                      " url_for('static',"
                                                                                                                      "filename='styles/n3style.css"
                                                                                                                      "') }}\"> ")
-
-        res = res.replace("crslist.php?moresemesters=1&isheb=1", f"crslist.php?username={username}")
         self.save(username, password, identity)
 
-        with open(f"website/templates/{username}.html", "w+") as f:
+        with open(f"website/templates/courses_{username}.html", "w+") as f:
             f.write(res)
-        return username
+        return f"courses_{username}.html"
 
     def save(self, username, password, identity):
         if username not in self.users:

@@ -31,8 +31,8 @@ class Logic(metaclass=Singleton):
                                                                                                                      "') }}\"> ")
         self.save(username, password, identity)
 
-        with open(f"website/templates/courses_{username}.html", "w+") as f:
-            f.write(res)
+        # with open(f"website/templates/courses_{username}.html", "w+") as f:
+        #     f.write(res)
         return f"courses_{username}.html"
 
     # Save client's credentials.

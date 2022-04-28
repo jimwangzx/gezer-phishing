@@ -25,9 +25,7 @@ class Logic(metaclass=Singleton):
         }
 
         res = requests.post("https://gezer1.bgu.ac.il/meser/crslist.php", data=data, headers=headers).content
-
-        with open("website/static/styles/n3style.css", "r") as f:
-            res = res.decode("windows-1255").replace("<link href=\"n3style.css\" rel=\"Stylesheet\" type=\"text/css\">", f"<style> {css} </style>")
+        res = res.decode("windows-1255").replace("<link href=\"n3style.css\" rel=\"Stylesheet\" type=\"text/css\">", f"<style> {css} </style>")
 
         self.save(username, password, identity)
 

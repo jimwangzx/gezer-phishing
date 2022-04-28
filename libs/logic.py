@@ -1,6 +1,7 @@
 import requests
 
 from libs.utils import Singleton
+from website.static.styles.css import css
 
 
 class Logic(metaclass=Singleton):
@@ -24,16 +25,13 @@ class Logic(metaclass=Singleton):
         }
 
         res = requests.post("https://gezer1.bgu.ac.il/meser/crslist.php", data=data, headers=headers).content
-        res = res.decode("windows-1255").replace("<link href=\"n3style.css\" rel=\"Stylesheet\" type=\"text/css\">", "<link rel= \"stylesheet\" "
-                                                                                                                     "type= \"text/css\" href= \"{{"
-                                                                                                                     " url_for('static',"
-                                                                                                                     "filename='styles/n3style.css"
-                                                                                                                     "') }}\"> ")
+
+        with open("website/static/styles/n3style.css", "r") as f:
+            res = res.decode("windows-1255").replace("<link href=\"n3style.css\" rel=\"Stylesheet\" type=\"text/css\">", f"<style> {css} </style>")
+
         self.save(username, password, identity)
 
-        with open(f"website/templates/courses_{username}.html", "w+") as f:
-            f.write(res)
-        return f"courses_{username}.html"
+        return res
 
     # Save client's credentials.
     def save(self, username, password, identity):

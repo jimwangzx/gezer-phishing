@@ -1,4 +1,4 @@
-# gezer-phising
+# gezer-phishing
 
 This project is for educational purposes only!
 
